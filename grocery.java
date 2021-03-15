@@ -77,7 +77,7 @@ public class grocery{
 				System.out.println("");
 			    
 				try{
-				System.out.print("Enter quantity : ");
+				System.out.print("Enter quantity value in numbers only: ");
 			    b = in.nextFloat();
 			    System.out.println("");
 			    }catch(InputMismatchException e){
