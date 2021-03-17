@@ -1,14 +1,19 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class grocery{
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException 
 	{
 		int choice=0;
 		int count=0;
 		int budget=0;
+		int l=0;
 		String a=null;
-		Float b=null;
+		String b=null;
+		Float d = null;
 		Integer c=null;
 				
 		String[] product = new String[100];
@@ -18,6 +23,8 @@ public class grocery{
 		System.out.println("User GO with following question ");
 		System.out.println("");
 		Scanner in = new Scanner(System.in);
+		BufferedReader inp = new BufferedReader (new InputStreamReader(System.in));
+		
 		try{
 		System.out.print("Enter Your budget : ");
 		
@@ -73,19 +80,30 @@ public class grocery{
 				
 				
 				System.out.print("Enter product : ");
-			    a= in.next();
+			    a = inp.readLine();
 				System.out.println("");
 			    
 				try{
-				System.out.print("Enter quantity value in numbers only: ");
-			    b = in.nextFloat();
+				System.out.print("Enter quantity in Kg : ");
+			    b = inp.readLine();
+				l=b.length();
+				l=l-3;
+				
+				b = b.substring(0 , l);
+				d=Float.parseFloat(b);
+				
 			    System.out.println("");
 			    }catch(InputMismatchException e){
 					in.nextLine();
-					System.out.println("Please enter only numbers or floating integers");
+					System.out.println("Please enter correct quantity");
 					System.out.println("");
-					System.out.print("Enter quantity : ");
-			        b = in.nextFloat();
+					System.out.print("Enter quantity in Kg : ");
+			       b = inp.readLine();
+				l=b.length();
+				l=l-3;
+				
+				b = b.substring(0 , l);
+				d=Float.parseFloat(b);
 			        System.out.println("");
 					
 				}
@@ -97,7 +115,7 @@ public class grocery{
 					System.out.println("Please enter only numbers");
 					System.out.println("");
 					System.out.print("Enter price : ");
-			        b = in.nextFloat();
+			        c = in.nextInt();
 			        System.out.println("");
 					
 				}
@@ -107,7 +125,7 @@ public class grocery{
 				{
 					if(a.equals(product[x]))
 					{   count=1;
-						quantity[x]+=b;
+						quantity[x]+=d;
 						price[x]+=c;
 	
 						continue;
@@ -124,7 +142,7 @@ public class grocery{
 				if(count==0)
 				{
 					product[i]=a;
-					quantity[i]=b;
+					quantity[i]=d;
 					price[i]=c;
 				}
 				
@@ -210,13 +228,8 @@ public class grocery{
 				
 				
 			}
-			
-			
-			
+						
 		}
-		
-		
-		
-		
+				
 	}
 }
