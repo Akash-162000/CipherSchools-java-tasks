@@ -41,7 +41,7 @@ public class grocery{
 		    System.out.println("");
 		}
 		
-		while(budget>0)
+		while(budget>=0)
 		{
 			System.out.println("1. Add an item to basket ");
 			System.out.println("");
@@ -125,8 +125,9 @@ public class grocery{
 				{
 					if(a.equals(product[x]))
 					{   count=1;
-						quantity[x]+=d;
-						price[x]+=c;
+					    budget = budget + price[x];
+						quantity[x]=d;
+						price[x]=c;
 	
 						continue;
 					}
@@ -228,8 +229,13 @@ public class grocery{
 				
 				
 			}
-						
+			
+			
+			
 		}
-				
+		
+		
+		
+		
 	}
 }
