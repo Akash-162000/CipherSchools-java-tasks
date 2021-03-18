@@ -31,7 +31,7 @@ public class grocery{
 		budget = in.nextInt();
 		System.out.println("");
 		System.out.println("");
-		}catch(InputMismatchException e){
+		}catch(Exception e){
 			in.nextLine();
 			System.out.println("Please enter correct budget ");
 			System.out.print("Enter Your budget : ");
@@ -55,7 +55,8 @@ public class grocery{
 			System.out.println("");
 			System.out.println("");
 			System.out.println("");
-			}catch(InputMismatchException e){
+			
+			}catch(Exception e){
 				in.nextLine();
 				System.out.println("Please enter correct choice ");
 				System.out.print("Enter your choice :");
@@ -64,6 +65,7 @@ public class grocery{
 			    System.out.println("");
 			    System.out.println("");
 			}
+			
 			
 			if((choice!=1) && (choice!=2))
 			{
@@ -78,10 +80,17 @@ public class grocery{
 			if(choice == 1)
 			{
 				
-				
+				try{
 				System.out.print("Enter product : ");
 			    a = inp.readLine();
 				System.out.println("");
+				if(a.length()==0)throw new Exception();
+				}catch(Exception e){
+					System.out.println("Please Enter Product name correctly ");
+					System.out.print("Enter product : ");
+			        a = inp.readLine();
+				    System.out.println("");
+				}
 			    
 				try{
 				System.out.print("Enter quantity in Kg : ");
@@ -93,8 +102,8 @@ public class grocery{
 				d=Float.parseFloat(b);
 				
 			    System.out.println("");
-			    }catch(InputMismatchException e){
-					in.nextLine();
+			    }catch(Exception e){
+					
 					System.out.println("Please enter correct quantity");
 					System.out.println("");
 					System.out.print("Enter quantity in Kg : ");
@@ -111,13 +120,20 @@ public class grocery{
 				try{
 				System.out.print("Enter price : ");
 			    c = in.nextInt();
+				
 				}catch(InputMismatchException e){
+					in.nextLine();
 					System.out.println("Please enter only numbers");
 					System.out.println("");
 					System.out.print("Enter price : ");
 			        c = in.nextInt();
 			        System.out.println("");
 					
+				}catch(Exception e)
+				{
+					System.out.println("Please enter the price correctly ");
+					System.out.print("Enter price : ");
+			        c = in.nextInt();
 				}
 				
 				
